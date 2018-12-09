@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        porker.shuffle();
+        //porker.shuffle();
         porker.print();
         recycler = findViewById(R.id.recycler);
         recycler.setHasFixedSize(true);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull PorkerViewHolder holder, int position) {
             //String cards = String.valueOf(porker.cards[position]);
-            holder.pokerText.setText(String.valueOf(porker.cards[position]));
+            holder.pokerText.setText((porker.cards[position].getCard()));
         }
 
         @Override

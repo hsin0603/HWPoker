@@ -3,19 +3,19 @@ package com.steven.homepoker;
 import java.util.Random;
 
 public class Poker {
-    int[] cards = new int[52];
-    char[] suits = {'s', 'c', 'h', 'd'};
+
+    Card[] cards = new Card[52];
 
     public Poker() {
         for (int i = 0; i < 52; i++) {
-            cards[i] = i;
+            cards[i] = new Card(i);
         }
     }
 
     public void shuffle() {
         for (int i = 0; i < 52; i++) {
             int r = new Random().nextInt(52);
-            int temp = cards[i];
+            Card temp = cards[i];
             cards[i] = cards[r];
             cards[r] = temp;
         }
@@ -23,7 +23,7 @@ public class Poker {
 
     public void print() {
         for (int i = 0; i < 52; i++) {
-            System.out.print(suits[cards[i] / 13] + " " + (cards[i] % 13 + 1));
+            System.out.print(cards[i].getCard());
             if (i % 13 == 12) {
                 System.out.println();
             }
